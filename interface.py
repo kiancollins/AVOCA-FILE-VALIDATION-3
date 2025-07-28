@@ -42,6 +42,10 @@ if file_type == "Product" and new_file and full_list_file and full_supplier_file
         expected_headers = [name for sublist in PRODUCT_HEADER_MAP.values() for name in sublist]
         header_row = detect_header_row(new_file, expected_headers)
         df = pd.read_excel(new_file, header=header_row)
+        print(df.head(5))
+        df = df[~df.apply(lambda row: all((pd.isna(x) or str(x).strip() == "") for x in row), axis=1)]
+        print("AFTER _________________")
+        print(df.head(5))
         df.columns = [normalize_header(c) for c in df.columns]
 
         missing = check_missing_headers(df, PRODUCT_HEADER_MAP)                         # Check missing columns
@@ -124,8 +128,8 @@ if file_type == "Product" and new_file and full_list_file and full_supplier_file
 
 # Step 4: Check for errors
     st.title("Checks")
-
-
+    # print(df.head(10))
+    print(f"all barcodes: {full_list_barcode[:5]}")
     flags_update, manual_summary = run_product_checks(df, products, col_map, full_list_plu, full_list_barcode, full_supplier_codes)
     cell_flags["manual"].extend(flags_update["manual"])
 
@@ -158,7 +162,7 @@ if file_type == "Product" and new_file and full_list_file and full_supplier_file
         for item in items
     ], columns=["Category", "Message"]) if auto_changes else pd.DataFrame([["None", "No automatic fixes applied"]], columns=["Category", "Message"])
 
-    buffer = product_excel(df, manual_checks, auto_checks, cell_flags, header_row)
+    buffer = product_excel(df, manual_checks, auto_checks, cell_flags)
 
     st.download_button(
         label="Download Fixed Version",
