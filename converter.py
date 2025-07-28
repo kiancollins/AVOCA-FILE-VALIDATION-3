@@ -38,7 +38,7 @@ def load_products(df: pd.DataFrame, header_row: int) -> tuple[list[Product], lis
             season = row.get(col_map["season"]),
             main_supplier = row.get(col_map["main_supplier"]),
             cost_price = row.get(col_map["cost_price"]),
-            barcode = row.get(col_map["barcode"]),
+            barcode = normalizer(row.get(col_map["barcode"])),
             vat_rate = row.get(col_map["vat_rate"]),
             rrp = row.get(col_map["rrp"]),
             sell_price = row.get(col_map["sell_price"]),
