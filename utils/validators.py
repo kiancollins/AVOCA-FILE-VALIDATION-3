@@ -20,9 +20,10 @@ def check_duplicates(items: list[Product | Clothing], full_list: list, attr: str
     """
     duplicates = {}
     full_list_cleaned = set(normalizer(str(x)) for x in full_list)
-
+    # print(f"CHECKING IN ITEMS: {items} in {full_list[:5]}")
     for item in items:
         value = normalizer(getattr(item, attr, None))
+        # print(f"Looking for {attr} for {item.plu_code} with barcode {item.barcode}\n")
         if value in full_list_cleaned:
             duplicates.setdefault(value, []).append(item.excel_line - 2)
 
