@@ -7,12 +7,13 @@ Functions used for normalizing everything for the program. Mostly for fixing hea
 
 def normalizer(value):
     """ Given value is outputted as a string."""
+    if isinstance(value, float):
+        value = int(value)
     value = str(value).strip()
-    # if value.endswith(".0"):
-    #     value = value[:-2]
     return value
 
 def normalize_header(value):
+
     """ Given header is outputted in a normalized format"""
     return str(value).strip().lower().replace(" ", "").replace("_", "").replace("-", "")
 
