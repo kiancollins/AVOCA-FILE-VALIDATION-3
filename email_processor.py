@@ -22,6 +22,7 @@ def process_product_file(new_file, sender_email, message_id, thread_id, subject)
     
     expected_headers = [name for sublist in PRODUCT_HEADER_MAP.values() for name in sublist]
     header_row = detect_header_row(new_file, expected_headers)
+    df = df[~df.apply(lambda row: all((pd.isna(x) or str(x).strip() == "") for x in row), axis=1)]
     df = pd.read_excel(new_file, header=header_row)
     df.columns = [normalize_header(c) for c in df.columns]
 
