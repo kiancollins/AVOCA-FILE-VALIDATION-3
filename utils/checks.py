@@ -20,7 +20,7 @@ def run_product_checks(df: pd.DataFrame, products: list[Product], col_map, full_
     # Column indexes
     plu_idx = df.columns.get_loc(col_map["plu_code"])
     barcode_idx = df.columns.get_loc(col_map["barcode"])
-    supplier_idx = df.columns.get_loc(col_map["main_supplier"])
+    supplier_idx = df.columns.get_loc(col_map["supplier_code"])
 
     # Duplicate PLU Codes
     duplicate_plu_dict = check_duplicates(products, full_list_plu, "plu_code")
@@ -67,7 +67,7 @@ def run_product_checks(df: pd.DataFrame, products: list[Product], col_map, full_
             cell_flags["manual"].append((line, barcode_idx))
 
     # Supplier Exists
-    supplier_exists, supplier_coords = check_exist(products, full_supplier_codes, "main_supplier")
+    supplier_exists, supplier_coords = check_exist(products, full_supplier_codes, "supplier_code")
     for row, _ in supplier_coords:  # second value is list of coords
         cell_flags["manual"].append((row, supplier_idx))
 
