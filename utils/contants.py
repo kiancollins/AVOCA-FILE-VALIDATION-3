@@ -43,63 +43,64 @@ VAT_CODES = {23.0: 1,
              9.0: 3}
 
 
-BAD_CHARS = set("'%’‘“”`,")
+BAD_CHARS = set("'%’‘“”,")
 
 
 THRESHOLD = 0.8 
 
 
 PRODUCT_HEADER_MAP = {
-    "plu_code": ["plu", "plu code", "plucode", "plu-code", "plu_code"],
+    "plu_code": ["plu_code", "plu", "plu code", "plucode", "plu-code", "PLU Code"],
     "description": ["description", "desc", "productdescription"],
     "subgroup": ["subgroup", "category", "sub", "subcategory", "productsubgroup"],
-    "supplier_code": ["3digitsupplier", "supplier", "threedigitsupplier", "3digitsuppliercode", "threedigitsuppliercode"],
+    "3_digit_supplier": ["3_digit_supplier", "3digitsupplier", "threedigitsupplier", "3digitsuppliercode", "threedigitsuppliercode"],
     "season": ["season"],
-    "main_supplier": ["suppliercode", "main-supplier", "suppliermain", "productsupplier"],
-    "cost_price": ["costprice", "cost"],
+    "main_supplier": ["main_supplier", "suppliercode", "main-supplier", "suppliermain", "productsupplier"],
+    "cost_price": ["cost_price", "costprice", "cost"],
     "barcode": ["barcode", "bar code", "productbarcode", "product-barcode", "barcodes", "barcode(s)"],
-    "vat_rate": ["vatrate", "vat", "vatcode", "vat-code", "productvatrate", "productvatcode"],
+    "vat_rate": ["vat_rate", "vatrate", "vat", "vatcode", "vat-code", "productvatrate", "productvatcode"],
     "rrp": ["rrp"],
-    "sell_price": ["sellingprice", "sellprice", "priceforsell", "selling", "productsellingprice"],
-    "stg_price": ["stgprice", "stgretailprice", "sterlingprice", "productstgprice"],
-    "tariff": ["tariffcode", "tariff"],
+    "sell_price": ["sell_price", "sellingprice", "sellprice", "priceforsell", "selling", "productsellingprice"],
+    "stg_price": ["stg_price", "stgprice", "stgretailprice", "sterlingprice", "productstgprice"],
+    "tariff": ["tariff", "tariffcode"],
     "web": ["web", "forweb"]
     
 }
 
 
 CLOTHING_HEADER_MAP = {
-    "style_code": ["stylecode", "productstylecode", "style-code", "style_code", "plu", "plucode", "plu-code", "plu_code"],
-    "description": ["description", "desc"],
+    "style_code": ["style_code","stylecode", "productstylecode", "style-code", "style_code", "plu", "plucode", "plu-code", "plu_code"],
+    "description": ["description", "desc", "productdescription"],
     "size": ["size"],
     "colour": ["colour", "color"],
     "subgroup": ["subgroup", "category", "sub group"],
-    "supplier_code": ["3digitsupplier", "supplier code", "suppliercode"],
+    "3_digit_supplier": ["3_digit_supplier", "3digitsupplier", "threedigitsupplier", "3digitsuppliercode", "threedigitsuppliercode"],
     "season": ["season"],
-    "main_supplier": ["mainsupplier", "main supplier"],
-    "cost_price": ["costprice", "cost price", "cost"],
-    "barcode": ["barcode", "bar code", "productbarcode", "barcodes", "barcode(s)"],
-    "vat_rate": ["vatrate", "vat rate", "vat", "vatcode"],
+    "main_supplier": ["main_supplier", "mainsupplier", "main supplier"],
+    "cost_price": ["cost_price", "costprice", "cost"],
+    "barcode": ["barcode", "bar code", "productbarcode", "product-barcode", "barcodes", "barcode(s)"],
+    "vat_rate": ["vat_rate", "vatrate", "vat", "vatcode", "vat-code", "productvatrate", "productvatcode"],
     "rrp": ["rrp"],
-    "sell_price": ["sellingprice", "selling price", "sellprice"],
-    "stg_price": ["stgretailprice", "stg retail price", "stgprice"],
-    "tariff": ["tariffcode", "tariff-code", "tariff", "tariff"],
+    "sell_price": ["sell_price", "sellingprice", "sellprice", "priceforsell", "selling", "productsellingprice"],
+    "stg_price": ["stg_price", "stgprice", "stgretailprice", "sterlingprice", "productstgprice"],
+    "tariff": ["tariff", "tariffcode"],
     "brand": ["brandinstore", "brand in store", "brand"],
-    "product_type": ["producttype", "product type"],
+    "product_type": ["product_type", "producttype", "product type"],
     "web": ["web", "online", "website", "forweb"],
-    "country": ["countryoforigin", "country of origin", "origin"],
-    "country_code": ["countrycode", "country code"],
+    "country": ["country", "countryoforigin", "country of origin", "origin"],
+    "country_code": ["country_code", "countrycode", "country code"],
 }
 
 
 
 PRICE_AMENDMENT_HEADER_MAP = {
-    "plu_code": ["plu", "plu code", "plucode", "plu-code", "plu_code"],
+    "plu_code": ["plu", "plu code", "plucode", "plu-code", "plu_code", "PLU Code"],
     "description": ["description", "desc", "productdescription"],
-    "main_supplier": ["3digitsupplier", "supplier", "threedigitsupplier", "3digitsuppliercode", 
-                      "threedigitsuppliercode",  "suppliercode", "main-supplier", "suppliermain", "productsupplier"],
-    "cost_price": ["costprice", "cost"],
+    "main_supplier": ["main_supplier", "suppliercode", "main-supplier", "suppliermain", "productsupplier",
+                    "3digitsupplier", "supplier", "threedigitsupplier", "3digitsuppliercode", 
+                    "threedigitsuppliercode",  "suppliercode", "main-supplier", "suppliermain", "productsupplier"],
+    "cost_price": ["cost_price", "costprice", "cost"],
     "rrp": ["rrp"],
-    "sell_price": ["sellingprice", "sellprice", "priceforsell", "selling", "productsellingprice"],
-    "stg_price": ["stgprice", "stgretailprice", "sterlingprice", "productstgprice"],
+    "sell_price": ["sell_price", "sellingprice", "sellprice", "priceforsell", "selling", "productsellingprice"],
+    "stg_price": ["stg_price", "stgprice", "stgretailprice", "sterlingprice", "productstgprice"],
 }
