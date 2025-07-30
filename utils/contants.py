@@ -52,10 +52,15 @@ THRESHOLD = 0.8
 PRODUCT_HEADER_MAP = {
     "plu_code": ["plu_code", "plu", "plu code", "plucode", "plu-code", "PLU Code"],
     "description": ["description", "desc", "productdescription"],
+    "colour": ["colour", "color", "itemcolor", "productcolor"],
+    "size": ["size", "productsize", "itemsize"],
     "subgroup": ["subgroup", "category", "sub", "subcategory", "productsubgroup"],
     "3_digit_supplier": ["3_digit_supplier", "3digitsupplier", "threedigitsupplier", "3digitsuppliercode", "threedigitsuppliercode"],
     "season": ["season"],
     "main_supplier": ["main_supplier", "suppliercode", "main-supplier", "suppliermain", "productsupplier"],
+    "supplier_item_code": ["supplier_item_code", "supplieritem", "supplieritemcode"],
+    "purchase_unit_qty": ["purchase_unit_qty", "purchaseqty", "purchasequantity"],
+    "purchase_unit_desc": ["purchase_unit_desc", "purchasedesc", "purchaseunit", "unitdescription"],
     "cost_price": ["cost_price", "costprice", "cost"],
     "barcode": ["barcode", "bar code", "productbarcode", "product-barcode", "barcodes", "barcode(s)"],
     "vat_rate": ["vat_rate", "vatrate", "vat", "vatcode", "vat-code", "productvatrate", "productvatcode"],
@@ -63,9 +68,16 @@ PRODUCT_HEADER_MAP = {
     "sell_price": ["sell_price", "sellingprice", "sellprice", "priceforsell", "selling", "productsellingprice"],
     "stg_price": ["stg_price", "stgprice", "stgretailprice", "sterlingprice", "productstgprice"],
     "tariff": ["tariff", "tariffcode"],
-    "web": ["web", "forweb"]
-    
+    "offer_analysis": ["offer_analysis", "offer", "promotionanalysis"],
+    "product_type": ["product_type", "producttype", "type", "itemtype"],
+    "brand_in_store": ["brand_in_store", "brandinstore", "brand"],
+    "web": ["web", "forweb"],
+    "servicetype": ["servicetype", "service_type", "typeofservice"],
+    "item_type": ["item_type", "itemtype", "typeofitem"],
+    "activity_indicator": ["activity_indicator", "activity", "activeflag", "status"],
+    "max_discount": ["max_discount", "maximumdiscount", "maxdiscount", "discountlimit"]
 }
+
 
 
 CLOTHING_HEADER_MAP = {
@@ -88,7 +100,7 @@ CLOTHING_HEADER_MAP = {
     "product_type": ["product_type", "producttype", "product type"],
     "web": ["web", "online", "website", "forweb"],
     "country": ["country", "countryoforigin", "country of origin", "origin"],
-    "country_code": ["country_code", "countrycode", "country code"],
+    "country_code": ["country_code", "countrycode", "country code", "CountryCode"],
 }
 
 
