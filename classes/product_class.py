@@ -3,7 +3,13 @@ import streamlit as st
 
 class Product:
     def __init__(self, code, description, subgroup, supplier_code, season, 
-                 main_supplier, cost_price, barcode, vat_rate, rrp, sell_price, stg_price, tariff, web, idx=None):
+                main_supplier, cost_price, barcode, vat_rate, rrp, sell_price, stg_price, tariff, web, idx=None,
+                # New Ones
+                colour=None, size=None, supplier_item_code=None, purchase_unit_qty=None, purchase_unit_desc=None, 
+                offer_analysis=None, product_type=None, brand_in_store=None, servicetype=None, item_type=None, 
+                activity_indicator=None, max_discount=None,):
+        
+
         self.plu_code = code
         self.description = description
         self.subgroup = subgroup
@@ -19,6 +25,19 @@ class Product:
         self.tariff = tariff
         self.web = web
         self.excel_line = idx
+        # New Ones
+        self.colour = colour
+        self.size = size
+        self.supplier_item_code = supplier_item_code
+        self.purchase_unit_qty = purchase_unit_qty
+        self.purchase_unit_desc = purchase_unit_desc
+        self.offer_analysis = offer_analysis
+        self.product_type = product_type
+        self.brand_in_store = brand_in_store
+        self.servicetype = servicetype
+        self.item_type = item_type
+        self.activity_indicator = activity_indicator
+        self.max_discount = max_discount
 
 
     def __repr__(self):
