@@ -34,20 +34,34 @@ def load_products(df: pd.DataFrame, header_row: int) -> tuple[list[Product], lis
             code = normalizer(row.get(col_map["plu_code"])),
             description = row.get(col_map["description"]),
             subgroup = row.get(col_map["subgroup"]),
-            supplier_code = row.get(col_map["supplier_code"]),
+            supplier_code = row.get(col_map["3_digit_supplier"]),
             season = row.get(col_map["season"]),
             main_supplier = row.get(col_map["main_supplier"]),
             cost_price = row.get(col_map["cost_price"]),
-            barcode = normalizer(row.get(col_map["barcode"])),
+            barcode = barcode_normalizer(row.get(col_map["barcode"])),
             vat_rate = row.get(col_map["vat_rate"]),
             rrp = row.get(col_map["rrp"]),
             sell_price = row.get(col_map["sell_price"]),
             stg_price = row.get(col_map["stg_price"]),
             tariff = row.get(col_map["tariff"]),
             web = row.get(col_map["web"]),
-            idx = line_number
+            idx = line_number,
+            # New Ones
+            colour = row.get(col_map["colour"]),
+            size = row.get(col_map["size"]),
+            supplier_item_code = row.get(col_map["supplier_item_code"]),
+            purchase_unit_qty = row.get(col_map["purchase_unit_qty"]),
+            purchase_unit_desc = row.get(col_map["purchase_unit_desc"]),
+            offer_analysis = row.get(col_map["offer_analysis"]),
+            product_type = row.get(col_map["product_type"]),
+            brand_in_store = row.get(col_map["brand_in_store"]),
+            servicetype = row.get(col_map["servicetype"]),
+            item_type = row.get(col_map["item_type"]),
+            activity_indicator = row.get(col_map["activity_indicator"]),
+            max_discount = row.get(col_map["max_discount"])
         )
         products.append(product)
+        print(product.excel_line)
 
     return products, messages, col_map
 
@@ -90,7 +104,7 @@ def load_clothing(df: pd.DataFrame, header_row) -> tuple[list[Clothing], list[tu
             size=row.get(col_map["size"]),
             colour=row.get(col_map["colour"]),
             subgroup=row.get(col_map["subgroup"]),
-            supplier_code=row.get(col_map["supplier_code"]),
+            supplier_code=row.get(col_map["3_digit_supplier"]),
             season=row.get(col_map["season"]),
             main_supplier=row.get(col_map["main_supplier"]),
             cost_price=row.get(col_map["cost_price"]),
